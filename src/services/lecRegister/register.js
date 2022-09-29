@@ -15,7 +15,9 @@ export function register(req, res, next) {
         if (userIndex === false) {
             return badRequestResponse(res, "No User with this id");
         }
-        if (!(Users[parseInt(studentId)].role !== "Student")){
+        const ro = Users[parseInt(studentId) - 1]
+        console.log(ro.role);
+        if ((ro.role !== "Student")){
             return badRequestResponse(res, "User not student");
         }
         return okResponse(res, "welcome , you can see the lectures");
